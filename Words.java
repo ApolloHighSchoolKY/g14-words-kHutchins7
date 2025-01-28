@@ -64,11 +64,13 @@ public class Words
 			//if the Word has "size" characters
 			for (int i= wordList.size()-1;i>=0;i--)
 			{
-				if (wordList.get(i).getLength())
+				if (wordList.get(i).getLength()==size)
+				{
+                  vowelCount+=wordList.get(i).getNumVowels();
+				  wordList.remove(i);
+				}
 
 			}
-
-
 		return vowelCount;
 	}
 
@@ -77,8 +79,15 @@ public class Words
 		int count=0;
 
 		//for every Word in the ArrayList "words"
+		for  (Word theWord : wordList ) {
+			if (theWord.getNumVowels()==numVowels){
+				count++;
+			}
+			
+		}
 
 			//if the number of vowels in "theWord" is the same as the parameter "numVowels"
+
 
 
 		return count;
@@ -86,6 +95,6 @@ public class Words
 
 	public String toString()
 	{
-	   return "";
+	   return "" + wordList;
 	}
 }
